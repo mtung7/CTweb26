@@ -1,0 +1,9 @@
+# Nothing in this folder is generated — it is the site itself.
+# Only the macOS cruft and local scratch files are ignored.
+
+.DS_Store
+Thumbs.db
+node_modules/
+*.log
+
+# The browser's own edits live in localStorage and IndexedDB, never here.

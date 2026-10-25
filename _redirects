@@ -1,0 +1,8 @@
+# Cloudflare Pages — URL rewrites
+#
+# The site uses hash routing (#sports, #ngo …), so every path is served by
+# the single index.html. This keeps a bookmark or a shared link working
+# even if someone strips the hash.
+
+/*
+  /index.html  200

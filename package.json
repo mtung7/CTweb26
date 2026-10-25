@@ -1,0 +1,12 @@
+{
+  "name": "carey-tong-portfolio",
+  "version": "3.1.0",
+  "private": true,
+  "description": "Carey Tong — Admissions Portfolio. A fully static site: no runtime, no dependencies, no build step.",
+  "scripts": {
+    "build": "node build.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

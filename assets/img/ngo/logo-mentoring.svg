@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-label="mentoring logo placeholder">
+  <rect width="400" height="400" fill="#14395f"/>
+  <rect x="26" y="26" width="348" height="348" fill="none" stroke="#f4f1ea" stroke-opacity="0.45" stroke-width="3"/>
+  <circle cx="200" cy="168" r="62" fill="none" stroke="#f4f1ea" stroke-width="4"/>
+  <text x="200" y="196" font-family="Georgia, 'Times New Roman', serif" font-size="76" fill="#f4f1ea" text-anchor="middle">A</text>
+  <text x="200" y="300" font-family="Helvetica, Arial, sans-serif" font-size="21" letter-spacing="5" fill="#f4f1ea" fill-opacity="0.8" text-anchor="middle">PROJECT</text>
+  <text x="200" y="336" font-family="Helvetica, Arial, sans-serif" font-size="13" letter-spacing="3" fill="#f4f1ea" fill-opacity="0.55" text-anchor="middle">REPLACE IN EDIT MODE</text>
+</svg>

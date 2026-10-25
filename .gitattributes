@@ -1,0 +1,16 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Binary assets must never be line-ending converted — that would corrupt
+# every image, PDF and video in the repository.
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.webp binary
+*.heic binary
+*.gif binary
+*.mp4 binary
+*.webm binary
+*.pdf binary
+*.woff2 binary
+*.svg text

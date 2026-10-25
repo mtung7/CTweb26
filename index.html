@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carey Tong — Admissions Portfolio</title>
+<meta name="description" content="Carey Tong — Enterprise Director of Team Lunar, 2024 F1 in Schools World Finalist. A portfolio of engineering, brand, communication and competition.">
+<meta name="author" content="Carey Tong">
+<meta property="og:title" content="Carey Tong — Admissions Portfolio">
+<meta property="og:description" content="Enterprise Director, Team Lunar — F1 in Schools World Finalist 2024.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="assets/css/style.v8.css?v=9">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%2314395f'>CT</text></svg>">
+</head>
+<body class="layer-home">
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="wrap nav__inner">
+    <a class="nav__brand" href="#home" id="brandLink">
+      <span class="nav__name" data-bind="profile.name" data-edit="profile.name">Carey Tong</span>
+      <span class="nav__tag" data-bind="profile.role" data-edit="profile.role">Enterprise Director</span>
+    </a>
+    <nav>
+      <ul class="nav__links" id="navLinks"></ul>
+    </nav>
+    <div class="nav__actions">
+      <a class="nav__toc-hint" href="#contents">Contents ↓</a>
+      <button class="btn btn--sm btn--ghost" id="editToggle" title="Toggle edit mode (press E)">Edit</button>
+    </div>
+  </div>
+</header>
+
+<!-- ================================================================
+     LAYER 1 — HOMEPAGE : personal introduction + table of contents
+     ================================================================ -->
+<div id="layerHome">
+
+  <section class="hero" id="home">
+    <div class="wrap hero__grid">
+      <div class="hero__copy">
+        <p class="hero__kicker" data-bind="hero.kicker" data-edit="hero.kicker">Admissions Portfolio</p>
+        <h1 class="hero__title">
+          <span class="hero__name" data-bind="hero.titleLine1" data-edit="hero.titleLine1">Carey Tong</span>
+          <em class="hero__tagline" data-bind="hero.titleAccent" data-edit="hero.titleAccent">Building things that move people</em>
+        </h1>
+        <p class="hero__role" data-bind="hero.role" data-edit="hero.role">Enterprise Director</p>
+        <p class="hero__lede" data-bind="hero.lede" data-edit="hero.lede" data-edit-raw="true"></p>
+        <div class="hero__cta">
+          <a class="btn btn--solid" id="ctaPrimary" href="#contents">Browse the portfolio</a>
+          <a class="btn" id="ctaSecondary" href="#">Download résumé</a>
+        </div>
+        <dl class="hero__facts" id="heroFacts"></dl>
+      </div>
+      <div class="hero__media">
+        <div class="hero__portrait">
+          <img id="portrait" src="assets/img/profile/portrait.jpg" alt="Carey Tong" data-edit-img="profile.image" data-edit-type="image">
+        </div>
+        <div class="hero__caption">
+          <span data-bind="profile.captionLeft" data-edit="profile.captionLeft"></span>
+          <span data-bind="profile.captionRight" data-edit="profile.captionRight"></span>
+        </div>
+        <div class="hero__badge">
+          <strong data-bind="hero.badge.label" data-edit="hero.badge.label"></strong>
+          <span data-bind="hero.badge.text" data-edit="hero.badge.text"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TABLE OF CONTENTS — compact row, directly under the intro ===== -->
+  <section class="tocbar" id="contents">
+    <div class="wrap">
+      <div class="tocbar__head">
+        <span class="section-kicker" data-bind="contents.kicker" data-edit="contents.kicker"></span>
+        <h2 class="tocbar__title" data-bind="contents.title" data-edit="contents.title"></h2>
+        <p class="tocbar__lede" data-bind="contents.lede" data-edit="contents.lede"></p>
+      </div>
+      <nav class="toc-grid toc-grid--row" id="tocGrid" aria-label="Portfolio sections"></nav>
+    </div>
+  </section>
+
+</div><!-- /#layerHome -->
+
+<!-- ================================================================
+     LAYER 2 — SECTIONS
+     ================================================================ -->
+<div id="layerBody" class="layer-body">
+
+  <!-- section switcher (layer 2 only) -->
+  <div class="secbar" id="secbar">
+    <div class="wrap secbar__inner">
+      <a class="secbar__home" href="#home" title="Back to contents">
+        <span aria-hidden="true">←</span> Contents
+      </a>
+      <ul class="secbar__list" id="secbarList"></ul>
+    </div>
+  </div>
+
+  <!-- ============ F1 IN SCHOOL ============ -->
+  <section class="section section--body" id="f1" data-section="f1">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="section-head__top">
+            <span class="section-index" data-bind="f1.index">01</span>
+            <span class="section-kicker" data-bind="f1.kicker" data-edit="f1.kicker"></span>
+          </div>
+          <h2 class="section-title" data-bind="f1.title" data-edit="f1.title"></h2>
+        </div>
+        <p class="section-lede" data-bind="f1.lede" data-edit="f1.lede"></p>
+      </div>
+
+      <div class="f1-intro">
+        <div class="f1-intro__body" id="f1Intro"></div>
+        <div>
+          <div class="pullquote">
+            <p data-bind="f1.pullquote.text" data-edit="f1.pullquote.text"></p>
+            <cite data-bind="f1.pullquote.cite" data-edit="f1.pullquote.cite"></cite>
+          </div>
+          <p style="font-size:14px;line-height:1.7;color:var(--ink-3)" data-bind="f1.team.text" data-edit="f1.team.text"></p>
+        </div>
+      </div>
+
+      <div class="statgrid" id="f1Stats"></div>
+
+      <!-- documents: full inline preview of the five portfolios -->
+      <div class="docbox" id="docBox"></div>
+    </div>
+
+    <!-- sub nav -->
+    <div class="subnav" id="f1Subnav">
+      <div class="wrap">
+        <div class="subnav__inner" role="tablist">
+          <button class="subnav__btn is-active" data-panel="gallery" role="tab">Gallery</button>
+          <button class="subnav__btn" data-panel="portfolios" role="tab">Portfolios</button>
+          <button class="subnav__btn" data-panel="timeline" role="tab">Timeline</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <!-- GALLERY -->
+      <div class="subpanel is-active" id="panel-gallery">
+        <div class="section-head">
+          <div>
+            <div class="section-head__top">
+              <span class="section-kicker" data-bind="f1.gallery.kicker" data-edit="f1.gallery.kicker"></span>
+            </div>
+            <h2 class="section-title" style="font-size:clamp(30px,4vw,46px)" data-bind="f1.gallery.title" data-edit="f1.gallery.title"></h2>
+          </div>
+          <p class="section-lede" data-bind="f1.gallery.lede" data-edit="f1.gallery.lede"></p>
+        </div>
+        <div class="gallery" id="galleryGrid"></div>
+        <button class="add-btn" data-add="gallery">+ Add gallery item</button>
+      </div>
+
+      <!-- PORTFOLIOS -->
+      <div class="subpanel" id="panel-portfolios">
+        <div class="section-head">
+          <div>
+            <div class="section-head__top">
+              <span class="section-kicker" data-bind="f1.portfolios.kicker" data-edit="f1.portfolios.kicker"></span>
+            </div>
+            <h2 class="section-title" style="font-size:clamp(30px,4vw,46px)" data-bind="f1.portfolios.title" data-edit="f1.portfolios.title"></h2>
+          </div>
+          <p class="section-lede" data-bind="f1.portfolios.lede" data-edit="f1.portfolios.lede"></p>
+        </div>
+        <div class="pgrid" id="portfolioGrid"></div>
+        <button class="add-btn" data-add="portfolio">+ Add portfolio document</button>
+      </div>
+
+      <!-- TIMELINE -->
+      <div class="subpanel" id="panel-timeline">
+        <div class="section-head">
+          <div>
+            <div class="section-head__top">
+              <span class="section-kicker" data-bind="f1.timeline.kicker" data-edit="f1.timeline.kicker"></span>
+            </div>
+            <h2 class="section-title" style="font-size:clamp(30px,4vw,46px)" data-bind="f1.timeline.title" data-edit="f1.timeline.title"></h2>
+          </div>
+          <p class="section-lede" data-bind="f1.timeline.lede" data-edit="f1.timeline.lede"></p>
+        </div>
+        <div class="tl" id="timelineList"></div>
+        <button class="add-btn" data-add="timeline">+ Add timeline entry</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GRAPHIC DESIGN ============ -->
+  <section class="section section--alt section--body" id="design" data-section="design">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="section-head__top">
+            <span class="section-index" data-bind="design.index">02</span>
+            <span class="section-kicker" data-bind="design.kicker" data-edit="design.kicker"></span>
+          </div>
+          <h2 class="section-title" data-bind="design.title" data-edit="design.title"></h2>
+        </div>
+        <p class="section-lede" data-bind="design.lede" data-edit="design.lede"></p>
+      </div>
+      <div id="designList"></div>
+      <button class="add-btn" data-add="design">+ Add design project</button>
+    </div>
+  </section>
+
+  <!-- ============ PUBLIC SPEAKING ============ -->
+  <section class="section section--ink section--body" id="speaking" data-section="speaking">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="section-head__top">
+            <span class="section-index" data-bind="speaking.index">03</span>
+            <span class="section-kicker" data-bind="speaking.kicker" data-edit="speaking.kicker"></span>
+          </div>
+          <h2 class="section-title" data-bind="speaking.title" data-edit="speaking.title"></h2>
+        </div>
+        <p class="section-lede" data-bind="speaking.lede" data-edit="speaking.lede"></p>
+      </div>
+
+      <div class="dsplit">
+        <div>
+          <div class="video" id="videoBox"></div>
+          <dl class="video-meta" id="videoMeta"></dl>
+        </div>
+        <div>
+          <h3 style="font-family:var(--serif);font-size:22px;font-weight:500;margin:0 0 18px" data-bind="speaking.notes.title" data-edit="speaking.notes.title"></h3>
+          <p style="font-size:15.5px;line-height:1.75;color:#c3c9ce;margin:0" data-bind="speaking.notes.text" data-edit="speaking.notes.text"></p>
+        </div>
+      </div>
+
+      <div class="cardgrid" id="speakingCards" style="margin-top:clamp(36px,5vw,60px)"></div>
+      <div class="add-row">
+        <button class="add-btn" data-add="speaking" style="max-width:280px">+ Add speaking item</button>
+        <button class="add-btn" data-add-photo="speaking" style="max-width:280px">+ Add a photo to the last item</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SPORTS ============ -->
+  <section class="section section--body" id="sports" data-section="sports">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="section-head__top">
+            <span class="section-index" data-bind="sports.index">04</span>
+            <span class="section-kicker" data-bind="sports.kicker" data-edit="sports.kicker"></span>
+          </div>
+          <h2 class="section-title" data-bind="sports.title" data-edit="sports.title"></h2>
+        </div>
+        <p class="section-lede" data-bind="sports.lede" data-edit="sports.lede"></p>
+      </div>
+
+      <div class="sport-list" id="sportsCards"></div>
+      <div class="add-row">
+        <button class="add-btn" data-add="sports" style="max-width:280px">+ Add a sport</button>
+        <button class="add-btn" data-add-photo="sports" style="max-width:280px">+ Add a photo to the last sport</button>
+      </div>
+
+      <div class="dsplit" style="margin-top:clamp(48px,6vw,84px)">
+        <div>
+          <h3 style="font-family:var(--serif);font-size:clamp(24px,3vw,34px);font-weight:400;line-height:1.2;margin:0 0 18px" data-bind="sports.philosophy.title" data-edit="sports.philosophy.title"></h3>
+          <p style="font-size:15px;color:var(--ink-3);margin:0">
+            The through-line across all three sports is the same discipline the car demanded: prepare the inputs, measure the outputs, and treat the gap between them as the actual work.
+          </p>
+        </div>
+        <ul class="dlist" id="sportsPoints"></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOBBIES ============ -->
+  <section class="section section--alt section--body" id="hobbies" data-section="hobbies">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="section-head__top">
+            <span class="section-index" data-bind="hobbies.index">05</span>
+            <span class="section-kicker" data-bind="hobbies.kicker" data-edit="hobbies.kicker"></span>
+          </div>
+          <h2 class="section-title" data-bind="hobbies.title" data-edit="hobbies.title"></h2>
+        </div>
+        <p class="section-lede" data-bind="hobbies.lede" data-edit="hobbies.lede"></p>
+      </div>
+
+      <div class="sport-list" id="hobbiesCards"></div>
+      <div class="add-row">
+        <button class="add-btn" data-add="hobbies" style="max-width:280px">+ Add a hobby</button>
+        <button class="add-btn" data-add-photo="hobbies" style="max-width:280px">+ Add a photo to the last hobby</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ NGO ============ -->
+  <section class="section section--body" id="ngo" data-section="ngo">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="section-head__top">
+            <span class="section-index" data-bind="ngo.index">06</span>
+            <span class="section-kicker" data-bind="ngo.kicker" data-edit="ngo.kicker"></span>
+          </div>
+          <h2 class="section-title" data-bind="ngo.title" data-edit="ngo.title"></h2>
+        </div>
+        <p class="section-lede" data-bind="ngo.lede" data-edit="ngo.lede"></p>
+      </div>
+
+      <div class="ngo-list" id="ngoList"></div>
+      <div class="add-row">
+        <button class="add-btn" data-add="ngo" style="max-width:280px">+ Add a project</button>
+        <button class="add-btn" data-add-photo="ngo" style="max-width:280px">+ Add a photo to the last project</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CLOSING ============ -->
+  <section class="section section--alt section--body" id="contact" data-section="contact">
+    <div class="wrap">
+      <div class="closing">
+        <h2 class="closing__title" data-bind="closing.title" data-edit="closing.title"></h2>
+        <p class="closing__text" data-bind="closing.text" data-edit="closing.text"></p>
+        <a class="btn btn--solid" id="closingCta" href="#contact">Get in touch</a>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /#layerBody -->
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <p class="footer__name" data-bind="footer.name" data-edit="footer.name"></p>
+        <p class="footer__blurb" data-bind="footer.blurb" data-edit="footer.blurb"></p>
+        <a class="btn btn--sm" id="footerCta" href="#home" style="border-color:rgba(255,255,255,.22);color:#fff">Back to contents</a>
+      </div>
+      <div>
+        <h4 data-bind="footer.linksTitle"></h4>
+        <ul id="footerLinks"></ul>
+      </div>
+      <div>
+        <h4 data-bind="footer.contactTitle"></h4>
+        <ul id="footerContact"></ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span data-bind="footer.copyright"></span>
+      <span data-bind="footer.built"></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ OVERLAYS ============ -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox__close" id="lbClose" aria-label="Close">&times;</button>
+  <button class="lightbox__nav lightbox__nav--prev" id="lbPrev" aria-label="Previous">&#8249;</button>
+  <button class="lightbox__nav lightbox__nav--next" id="lbNext" aria-label="Next">&#8250;</button>
+  <div style="text-align:center;max-width:100%">
+    <img class="lightbox__img" id="lbImg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="">
+    <p class="lightbox__cap" id="lbCap"></p>
+    <p class="lightbox__meta" id="lbMeta"></p>
+  </div>
+</div>
+
+<!-- PDF preview -->
+<div class="pdfview" id="pdfView">
+  <div class="pdfview__bar">
+    <span class="pdfview__title" id="pdfViewTitle"></span>
+    <div class="pdfview__actions">
+      <a class="btn btn--sm" id="pdfViewDownload" download>Download</a>
+      <a class="btn btn--sm btn--solid" id="pdfViewOpen" target="_blank" rel="noopener">Open in new tab</a>
+      <button class="pdfview__close" id="pdfViewClose" aria-label="Close">&times;</button>
+    </div>
+  </div>
+  <div class="pdfview__body" id="pdfViewBody"></div>
+</div>
+
+<div class="editor-bar" id="editorBar">
+  <span class="editor-bar__label">Edit mode</span>
+  <button class="btn btn--accent" id="btnSave">Save</button>
+  <button class="btn" id="btnExport">Export JSON</button>
+  <button class="btn" id="btnExportAll">Export + media</button>
+  <button class="btn" id="btnImport">Import</button>
+  <button class="btn" id="btnReset" title="Discard all browser edits and reload the shipped content">Reset to original</button>
+  <button class="btn" id="btnExit">Exit</button>
+</div>
+<span class="editable-hint">Edit mode — click any text to rewrite it</span>
+<div class="toast" id="toast"></div>
+<input type="file" id="filePicker" accept="application/pdf" hidden>
+<input type="file" id="jsonPicker" accept="application/json,.json" hidden>
+
+<!-- Content fallback: used when the site is opened directly from disk
+     (browsers block fetch() on file:// URLs). Regenerate with
+     `node tools/build-content.js` after editing content.json. -->
+<script src="assets/data/content.v8.js?v=9"></script>
+<script src="assets/js/store.v8.js?v=9"></script>
+<script src="assets/js/app.v8.js?v=9"></script>
+<script src="assets/js/editor.v8.js?v=9"></script>
+</body>
+</html>

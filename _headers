@@ -1,0 +1,28 @@
+# Cloudflare Pages — custom headers
+# The site is static, so most of this is about caching and MIME types.
+
+/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/css/*
+  Cache-Control: public, max-age=3600
+
+/assets/js/*
+  Cache-Control: public, max-age=3600
+
+/assets/img/*
+  Cache-Control: public, max-age=604800
+
+/assets/pdf/*
+  Cache-Control: public, max-age=3600
+  Content-Type: application/pdf
+
+/assets/video/*
+  Cache-Control: public, max-age=604800
+  Content-Type: video/mp4
+
+/assets/data/*
+  Cache-Control: public, max-age=600
+
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
