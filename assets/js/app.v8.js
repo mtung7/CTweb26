@@ -84,15 +84,26 @@
     if (src.startsWith('data:')) return true;
     if (missing.has(src)) return false;
     try {
-      // Some static servers do not implement HEAD, so ask for a single byte
-      // with GET + Range instead — it is cheap and works everywhere.
-      const res = await fetch(src, { headers: { Range: 'bytes=0-0' } });
-      const ok = res.ok || res.status === 206;
+      // Use HEAD. A Range probe ("bytes=0-0") looks cheaper, but servers that
+      // honour Range answer with a single byte — and the browser then caches
+      // that truncated body as the full resource, so the real <img> request
+      // later receives 1 byte of a JPEG/SVG and fails to decode.
+      const res = await fetch(src, { method: 'HEAD', cache: 'no-store' });
+      const ok = res.ok;
       if (!ok) missing.add(src);
       return ok;
     } catch (e) {
-      missing.add(src);
-      return false;
+      // Some static hosts reject HEAD; fall back to a plain GET that is read
+      // and discarded, so nothing partial ever enters the cache.
+      try {
+        const res = await fetch(src, { cache: 'no-store' });
+        if (!res.ok) { missing.add(src); return false; }
+        await res.arrayBuffer();
+        return true;
+      } catch (e2) {
+        missing.add(src);
+        return false;
+      }
     }
   }
   async function mediaAll(list) {
