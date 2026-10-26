@@ -174,16 +174,31 @@
     sec.textContent = secondary.label;
     sec.href = secondary.target;
     sec.setAttribute('download', '');
-    sec.hidden = false;
-    // If the secondary CTA points at a file that has not been published yet
-    // (e.g. résumé PDF still missing), hide the button instead of sending
-    // visitors to a 404. Offline / file:// probes are ignored — keep the button.
-    const secTarget = String(secondary.target || '');
-    if (secTarget && secTarget.charAt(0) !== '#' && /\.[a-z0-9]{2,5}(?:[?#].*)?$/i.test(secTarget)) {
-      fetch(secTarget, { method: 'HEAD' })
-        .then(res => { if (!res.ok) sec.hidden = true; })
-        .catch(() => {});
-    }
+    // The résumé PDF may not have been published yet. Probing for it on
+    // every page load would fire a 404 request each time, so the check
+    // happens on click instead: if the file is missing the visitor gets a
+    // short note rather than a broken download.
+    sec.addEventListener('click', (e) => {
+      const href = String(secondary.target || '');
+      if (!href || href.charAt(0) === '#') return;
+      e.preventDefault();
+      fetch(href, { method: 'HEAD' })
+        .then(res => {
+          if (!res.ok) throw new Error('missing');
+          // the file exists — let the browser download it
+          const a = document.createElement('a');
+          a.href = href;
+          a.download = '';
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+        })
+        .catch(() => {
+          const msg = 'Résumé is not published yet — drop resume.pdf into assets/data/ and reload.';
+          if (window.Editor && typeof window.Editor.toast === 'function') window.Editor.toast(msg);
+          else window.alert(msg);
+        });
+    });
 
     const facts = $('#heroFacts');
     facts.innerHTML = '';
@@ -992,6 +1007,12 @@
   }
 
   document.addEventListener('DOMContentLoaded', async () => {
+    // Switch the visible layer straight away. The full render below resolves
+    // 64 PDF pages and probes every image, which takes several seconds — a
+    // deep link such as #f1 must not sit on the home layer until then.
+    // renderAll() calls applyRoute() again once the content is in place,
+    // which is what finally lands the scroll on the right section.
+    applyRoute();
     await Store.load();
     renderAll();
     initEvents();

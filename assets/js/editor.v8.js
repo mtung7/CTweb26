@@ -541,5 +541,5 @@
     });
   });
 
-  window.Editor = { enterEdit, exitEdit, rebind, exportJSON, importJSON, resetAll };
+  window.Editor = { enterEdit, exitEdit, rebind, exportJSON, importJSON, resetAll, toast };
 })();
