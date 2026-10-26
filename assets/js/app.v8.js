@@ -174,6 +174,16 @@
     sec.textContent = secondary.label;
     sec.href = secondary.target;
     sec.setAttribute('download', '');
+    sec.hidden = false;
+    // If the secondary CTA points at a file that has not been published yet
+    // (e.g. résumé PDF still missing), hide the button instead of sending
+    // visitors to a 404. Offline / file:// probes are ignored — keep the button.
+    const secTarget = String(secondary.target || '');
+    if (secTarget && secTarget.charAt(0) !== '#' && /\.[a-z0-9]{2,5}(?:[?#].*)?$/i.test(secTarget)) {
+      fetch(secTarget, { method: 'HEAD' })
+        .then(res => { if (!res.ok) sec.hidden = true; })
+        .catch(() => {});
+    }
 
     const facts = $('#heroFacts');
     facts.innerHTML = '';
